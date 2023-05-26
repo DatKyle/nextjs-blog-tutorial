@@ -1,12 +1,14 @@
 import Head from "next/head";
-import Layout from "../../components/layout";
+import Layout from "../../../components/layout";
 
-import { getPostData } from '../../lib/posts';
-import Date from "../../components/date";
+import { getPostData } from '../../../lib/posts';
+import Date from "../../../components/date";
 
-import utilStyles from '../../styles/utils.module.css';
+import utilStyles from '../../../styles/utils.module.css';
 
-export default function Post({ postData }) {
+export default async function Page({ params }) {
+    const postData = await getPostData(params.slug);
+    
     return (
         <Layout>
             <Head>
@@ -21,13 +23,4 @@ export default function Post({ postData }) {
             </article>
         </Layout>
     );
-}
-
-export async function getServerSideProps({ query }) {
-    const postData = await getPostData(query.id);
-    return {
-        props: {
-            postData
-        },
-    };
 }
