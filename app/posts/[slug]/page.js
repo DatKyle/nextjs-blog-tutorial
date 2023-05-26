@@ -8,7 +8,7 @@ import utilStyles from '../../../styles/utils.module.css';
 
 export default async function Page({ params }) {
     const postData = await getPostData(params.slug);
-    
+
     return (
         <Layout>
             <Head>
