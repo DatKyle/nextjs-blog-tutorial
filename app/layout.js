@@ -1,5 +1,6 @@
+import Layout from '../components/layout';
 import '../styles/globals.css';
-import { ClerkProvider, UserButton } from '@clerk/nextjs'
+import { ClerkProvider, UserButton } from '@clerk/nextjs';
 
 export const metadata = {
   title: 'Next.js',
@@ -11,12 +12,14 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en">
         <body>
-          <section>
-            <UserButton />
-          </section>
-          <section>
-            {children}
-          </section>
+          <Layout>
+            <section>
+              <UserButton />
+            </section>
+            <section>
+              {children}
+            </section>
+          </Layout>
         </body>
       </html>
     </ClerkProvider>
