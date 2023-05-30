@@ -1,6 +1,13 @@
-import Layout from '../components/layout';
-import '../styles/globals.css';
+import Image from 'next/image';
+import Link from 'next/link';
+
 import { ClerkProvider, UserButton } from '@clerk/nextjs';
+
+import '../styles/globals.css';
+import styles from '../components/layout.module.css';
+import utilStyles from '../styles/utils.module.css';
+
+const name = 'Kyle Burns';
 
 export const metadata = {
   title: 'Next.js',
@@ -12,14 +19,9 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en">
         <body>
-          <Layout>
-            <section>
-              <UserButton />
-            </section>
-            <section>
-              {children}
-            </section>
-          </Layout>
+          <div className={styles.container}>
+            <main>{children}</main>
+          </div>
         </body>
       </html>
     </ClerkProvider>
