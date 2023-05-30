@@ -45,7 +45,7 @@ export default async function Home() {
         </section>
       </SignedIn>
       <SignedOut>
-        <SignIn />
+        <SignIn redirectUrl='www.cook-n-schedule.page/' />
       </SignedOut>
     </>
   );
